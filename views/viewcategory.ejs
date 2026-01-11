@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Category</title>
+</head>
+<body>
+<%- include("home.ejs") %>
+
+<div class="container p-5">
+    <input type="text" class="form-control"
+           onkeyup="location.href='/searchcategory?name='+this.value"
+           placeholder="Search Category">
+
+    <table class="table table-striped mt-3">
+        <tr>
+            <th>SR NO</th>
+            <th>CATEGORY NAME</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+
+        <% if (catList.length > 0) { %>
+            <% catList.forEach((row, index) => { %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= row.cname %></td>
+                <td>
+                    <a href="/deletecategory?id=<%= row.cid %>">DELETE</a>
+                </td>
+                <td>
+                    <a href="/updatecategory?cid=<%= row.cid %>&cname=<%= row.cname %>">UPDATE</a>
+                </td>
+            </tr>
+            <% }) %>
+        <% } else { %>
+            <tr><td colspan="4">No Data Found</td></tr>
+        <% } %>
+    </table>
+</div>
+</body>
+</html>

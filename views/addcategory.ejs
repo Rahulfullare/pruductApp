@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Category</title>
+</head>
+<body>
+<%- include("home.ejs") %>
+
+<div class="container p-4">
+    <form method="POST" action="/addcategory">
+        <input type="text" name="cname" class="form-control" placeholder="Enter Category Name">
+        <br>
+        <input type="submit" class="btn btn-primary" value="Add Category">
+
+        <% if (msg.length > 0) { %>
+            <div class="alert alert-info mt-3"><%= msg %></div>
+        <% } %>
+    </form>
+</div>
+</body>
+</html>

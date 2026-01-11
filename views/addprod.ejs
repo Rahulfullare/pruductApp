@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+</head>
+<body>
+
+<%- include("home.ejs") %>
+
+<br><br>
+
+<form action="/addprod" method="POST">
+    <div class="container bg-dark p-4">
+
+        <div class="form-group">
+            <input type="text" class="form-control"
+                   name="pname" placeholder="Enter Product Name" required>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" name="cid" required>
+                <option value="">-- Select Category --</option>
+                <% catList.forEach(cat => { %>
+                    <option value="<%= cat.cid %>">
+                        <%= cat.cname %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="number" class="form-control"
+                   name="price" placeholder="Enter Product Price" required>
+        </div>
+
+        <div class="form-group">
+            <input type="number" class="form-control"
+                   name="stock" placeholder="Enter Product Qty" required>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary form-control"
+                   value="Add New Product">
+        </div>
+
+        <% if (msg && msg.length > 0) { %>
+            <div class="alert alert-success mt-2">
+                <%= msg %>
+            </div>
+        <% } %>
+
+    </div>
+</form>
+
+</body>
+</html>

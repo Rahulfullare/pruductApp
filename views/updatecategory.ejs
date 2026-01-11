@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("home.ejs");%>
+    <br><br>
+    <form name="frm" action="/updatecategory" method="POST">
+    <div class="container bg-dark p-5">
+        <div class="form-group">
+            <input type="hidden" class ='form-control' name="id" value="<%=id%>"/>
+           </div> 
+
+            <div class="form-group">
+            <input type="text" class ='form-control' name="cname" value="<%=name%>" placeholder="Enter Name"/>
+           </div> 
+
+          
+        <div class="form-group">
+            <input type="submit" class ='form-control' name="s" value="Update Category"/>
+           </div> 
+        </div>
+        </form>
+</body>
+</html>
