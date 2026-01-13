@@ -4,7 +4,6 @@ let catctrl = require("../controllers/categoryCtrl");
 
 const router = express.Router();
 
-/* PRODUCT ROUTES */
 router.get("/", pctrl.homePage);
 router.get("/addprod", pctrl.addprodPage);
 router.post("/addprod", pctrl.addProduct);
@@ -16,7 +15,6 @@ router.get("/searchprod", pctrl.searchProdByName);
 
 
 
-/* CATEGORY ROUTES */
 router.get("/addcategory", catctrl.addCategoryPage);
 router.post("/addcategory", catctrl.createCategory);
 router.get("/viewcategory", catctrl.viewCategory);

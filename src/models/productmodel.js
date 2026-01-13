@@ -3,7 +3,6 @@ let db=require("../../db.js");
 exports.saveProduct = (pname, price, cid, stock) => {
     return new Promise((resolve, reject) => {
 
-        //  Check for duplicate product name
         const checkSql = "SELECT pid FROM product WHERE pname = ?";
         db.query(checkSql, [pname], (err, results) => {
             if (err) return reject(err);
@@ -12,7 +11,6 @@ exports.saveProduct = (pname, price, cid, stock) => {
                 return reject(new Error("Product name already exists"));
             }
 
-            //  Insert new product
             const insertSql = "INSERT INTO product(pname, price, cid, stock) VALUES (?, ?, ?, ?)";
             db.query(insertSql, [pname, price, cid, stock], (err2, result) => {
                 if (err2) reject(err2);

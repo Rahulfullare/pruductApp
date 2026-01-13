@@ -1,12 +1,10 @@
 let pmodel = require("../models/productmodel.js");
 let catmodel = require("../models/categorymodel.js");
 
-/* ================= HOME ================= */
 exports.homePage = (req, res) => {
     res.render("home.ejs");
 };
 
-/* ================= ADD PRODUCT PAGE ================= */
 exports.addprodPage = async (req, res) => {
     try {
         const categories = await catmodel.getViewCategory();
@@ -22,7 +20,6 @@ exports.addprodPage = async (req, res) => {
     }
 };
 
-/* ================= ADD PRODUCT ================= */
 exports.addProduct = async (req, res) => {
     let { pname, price, cid, stock } = req.body;
 
@@ -38,7 +35,6 @@ exports.addProduct = async (req, res) => {
     }
 };
 
-/* ================= VIEW PRODUCTS (PAGINATION) ================= */
 exports.getAllProd = async (req, res) => {
     try {
         const pageSize = 10;
@@ -60,7 +56,6 @@ exports.getAllProd = async (req, res) => {
     }
 };
 
-/* ================= UPDATE PRODUCT PAGE ================= */
 exports.showUpdatePage = (req, res) => {
     let { pid, pname, price, cid, stock } = req.query;
 
@@ -73,7 +68,6 @@ exports.showUpdatePage = (req, res) => {
     });
 };
 
-/* ================= UPDATE PRODUCT ================= */
 exports.updateProductFinal = async (req, res) => {
     let { id, name, price, category } = req.body;
 
@@ -91,7 +85,6 @@ exports.updateProductFinal = async (req, res) => {
     }
 };
 
-/* ================= DELETE PRODUCT ================= */
 exports.deleteProdById = async (req, res) => {
     let id = parseInt(req.query.id);
 
@@ -109,7 +102,6 @@ exports.deleteProdById = async (req, res) => {
     }
 };
 
-/* ================= SEARCH PRODUCT ================= */
 exports.searchProdByName = async (req, res) => {
     let name = req.query.name || "";
 

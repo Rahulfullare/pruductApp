@@ -13,4 +13,4 @@ app.use(express.json());
 
 app.use("/", router);
 
-module.exports = app;   // ✅ ONLY export app
+module.exports = app;   
